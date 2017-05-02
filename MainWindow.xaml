@@ -1,0 +1,28 @@
+﻿<Window x:Class="WPFSandbox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFSandbox"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel>
+            <Label Content="Submitted!" Height="29" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="126,67,0,0" Name="LabelTicketSubmitted" Opacity="0.0" VerticalAlignment="Top" Width="251" Background="#FF76FF04" />
+            <Button x:Name="ButtonSubmit" Content="Button" HorizontalAlignment="Left" Margin="214,101,0,0" VerticalAlignment="Top" Width="75" Click="buttonSubmit_Click" />
+            <Label Content="Submitted!" Height="29" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="126,67,0,0" x:Name="LabelTicketSubmittedCopy" Opacity="0.0" VerticalAlignment="Top" Width="251" Background="#FF76FF04" />
+            <StackPanel.Triggers>
+                <EventTrigger RoutedEvent="Button.Click" SourceName="ButtonSubmit">
+                    <BeginStoryboard Name="FilterStoryboardRectangleTicket">
+                        <Storyboard>
+                            <DoubleAnimation
+                                          Storyboard.TargetName="LabelTicketSubmitted" 
+                                          Storyboard.TargetProperty="(Label.Opacity)"
+                                          From="1.0" To="0.0" Duration="0:0:2" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </StackPanel.Triggers>
+        </StackPanel>
+    </Grid>
+</Window>
